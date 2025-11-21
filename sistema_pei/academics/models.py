@@ -1,6 +1,6 @@
 from django.apps import apps
 from django.core.exceptions import ValidationError
-from django.core.validators import MinValueValidator
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 from django.db.models import ProtectedError
 from django.forms.models import model_to_dict
@@ -250,6 +250,10 @@ class Enrollment(BaseModel):
         decimal_places=2,
         null=True,
         blank=True,
+        validators=[
+            MinValueValidator(0.00),
+            MaxValueValidator(100.00)
+        ],
     )
     absences1 = models.PositiveIntegerField(
         verbose_name=_("Faltas 1 Bimestre"),
@@ -261,6 +265,10 @@ class Enrollment(BaseModel):
         decimal_places=2,
         null=True,
         blank=True,
+        validators=[
+            MinValueValidator(0.00),
+            MaxValueValidator(100.00)
+        ],
     )
     absences2 = models.PositiveIntegerField(
         verbose_name=_("Faltas 2 Bimestre"),
@@ -272,6 +280,10 @@ class Enrollment(BaseModel):
         decimal_places=2,
         null=True,
         blank=True,
+        validators=[
+            MinValueValidator(0.00),
+            MaxValueValidator(100.00)
+        ],
     )
     absences3 = models.PositiveIntegerField(
         verbose_name=_("Faltas 3 Bimestre"),
@@ -283,6 +295,10 @@ class Enrollment(BaseModel):
         decimal_places=2,
         null=True,
         blank=True,
+        validators=[
+            MinValueValidator(0.00),
+            MaxValueValidator(100.00)
+        ],
     )
     absences4 = models.PositiveIntegerField(
         verbose_name=_("Faltas 4 Bimestre"),
